@@ -84,7 +84,7 @@ class Zend_Db_Select
     const REGEX_COLUMN_EXPR       = '/^([\w]*\s*\(([^\(\)]|(?1))*\))$/';
     const REGEX_COLUMN_EXPR_ORDER = '/^([\w]+\s*\(([^\(\)]|(?1))*\))$/';
     const REGEX_COLUMN_EXPR_GROUP = '/^([\w]+\s*\(([^\(\)]|(?1))*\))$/';
-    
+
     // @see http://stackoverflow.com/a/13823184/2028814
     const REGEX_SQL_COMMENTS      = '@
     (([\'"]).*?[^\\\]\2) # $1 : Skip single & double quoted expressions
@@ -240,7 +240,7 @@ class Zend_Db_Select
      * no correlation name is generated or prepended to the columns named
      * in the second parameter.
      *
-     * @param  array|string|Zend_Db_Expr $name The table name or an associative array
+     * @param  array|string|Zend_Db_Expr|Zend_Db_Select $name The table name or an associative array
      *                                         relating correlation name to table name.
      * @param  array|string|Zend_Db_Expr $cols The columns to select from this table.
      * @param  string $schema The schema name to specify, if any.
@@ -769,8 +769,8 @@ class Zend_Db_Select
      * as described in the from() method.
      *
      * @param  null|string $type Type of join; inner, left, and null are currently supported
-     * @param  array|string|Zend_Db_Expr $name Table name
-     * @param  string $cond Join on this condition
+     * @param  array|string|Zend_Db_Expr|Zend_Db_Select $name Table name
+     * @param  null|string $cond Join on this condition
      * @param  array|string $cols The columns to select from the joined table
      * @param  string $schema The database name to specify, if any.
      * @return Zend_Db_Select This Zend_Db_Select object
